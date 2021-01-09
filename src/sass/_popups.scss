@@ -1,0 +1,350 @@
+/* MFP
+---------------------------*/
+.black-popup {
+  background: #858585;
+}
+.mfp-popup {
+  background:
+    url(../images/bgs/popup.png),
+    $gradient_radial,
+    $gradient_linear;
+  background-position: center bottom;
+  // background-size: contain, auto, auto;
+  background-repeat: no-repeat;
+  position: relative;
+  padding: 55px 70px 200px;
+  width: 96%;
+  border-radius: 10px;
+  max-width: 580px;
+  margin: 20px auto;
+  color: #FFF;
+
+  &-title {
+    text-align: center;
+    @include fz(35);
+    font-family: $headersfont;
+    color: #FFF;
+    margin-bottom: 20px;
+    line-height: 1.32;
+    
+    &.big {
+      @include fz(52);
+      line-height: 1.2;
+    }
+  }
+  &-notify {
+    text-align: center;
+    @include fz(45);
+    line-height: 1.33;
+    font-family: $headersfont;
+    color: #FFF;
+    margin-bottom: 20px;
+
+    &-txt {
+      @include fz(20);
+
+      &:empty {
+        margin-bottom: 0;
+      }
+    }
+  }
+  a:not(.ui-btn) {
+    color: #FFF;
+    text-decoration: underline;
+    text-decoration-color: rgba(#FFF,.5);
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+  span.invalid {
+    color: #FFF;
+  }
+}
+.mfp-popup-langs {
+  position: absolute;
+  width: 70px;
+  right: -70px;
+  top: 25px;
+  z-index: 9;
+
+  a {
+    display: block;
+    width: 70px;
+    height: 70px;
+    line-height: 70px;
+    text-align: center;
+    white-space: nowrap;
+    background: #0F3A9B;
+    color: #FFF;
+    text-decoration: none !important;
+    @include fz(24);
+    font-weight: 700;
+
+    &:hover {
+      background: $secondary;
+    }
+
+    &:first-child {
+      border-top-right-radius: 5px;
+    }
+    &:last-child {
+      border-bottom-right-radius: 5px;
+    }
+
+    &.active {
+      background: $secondary;
+    }
+  }
+}
+.popup-notify {
+  text-align: center;
+}
+.popup-miracle {
+  text-align: center;
+}
+.popup-miracle-title {
+  font-size: 35px;
+  font-family: "TypoGraphica";
+  color: #FFF;
+  margin-bottom: 20px;
+}
+.popup-miracle-subtitle {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  margin-top: -12px;
+}
+.popup-miracle-dream {
+  font-size: 20px;
+  line-height: 1.5;
+  margin-bottom: 20px;
+  overflow: hidden;
+
+  &.heighted {
+    max-height: 90px;
+  }
+  &.toggled {
+    max-height: none;
+  }
+}
+.popup-social {
+  @include fz(20);
+
+  &-title {
+    @include fz(30);
+    margin-bottom: 30px;
+    letter-spacing: 1px;
+    font-family: $headersfont;
+  }
+  &-txt {
+    margin-bottom: 40px;
+
+    p {
+      margin-bottom: 25px;
+    }
+  }
+}
+
+
+.mfp-bg {
+	background: #FFF;
+}
+.mfp-container {
+  padding: 0;
+}
+.mfp-iframe-holder .mfp-close {
+  right: 0;
+  width: 24px;
+
+  &:after,
+  &:before {
+    background: #FFF;
+  }
+
+  &:hover {
+    &:after,
+    &:before {
+      background: #000;
+    }
+  }
+}
+button.mfp-close {
+  font-size: 0;
+  text-indent: -9999px;
+  overflow: hidden;
+  top: 25px !important;
+  right: -70px;
+  width: 70px;
+  height: 70px;
+  min-width: 70px;
+  background: #0F3A9B;
+  border: 0 !important;
+  padding: 0 !important;
+  border-radius: 0px 5px 5px 0px;
+  cursor: pointer;
+  opacity: 1;
+
+  &:before, &:after {
+    content: "";
+    position: absolute;
+    height: 2px;
+    top: 50%;
+    margin-top: -1px;
+    left: 14px;
+    right: 14px;
+    background: #FFF;
+    border-radius: 1px;
+    -webkit-transition: transform .35s, background .35s;
+    -moz-transition: transform .35s, background .35s;
+    -ms-transition: transform .35s, background .35s;
+    -o-transition: transform .35s, background .35s;
+    transition: transform .35s, background .45s;
+  }
+  &:before {
+    // @include transform(rotate(45deg));
+    transform: rotate(45deg);
+  }
+  &:after {
+    // @include transform(rotate(-45deg));
+    transform: rotate(-45deg);
+  }
+  &:hover {
+    &:before, &:after {
+      background: #EEE;
+    }
+    &:before {
+      // @include transform(rotate(135deg));
+      transform: rotate(135deg);
+    }
+    &:after {
+      // @include transform(rotate(-135deg));
+      transform: rotate(-135deg);
+    }
+  }
+}
+.mfp-gallery .mfp-bottom-bar {
+  display: none;
+}
+.mfp-zoom-out-cur, .mfp-zoom-out-cur .mfp-image-holder .mfp-close {
+  cursor: pointer;
+}
+
+
+
+
+/* MFP Animations
+---------------------------*/
+/* start state */
+.my-mfp-zoom-in .zoom-anim-dialog {
+  opacity: 0;
+  transition: all .4s .35s; 
+  transform: scale(0.75);
+}
+.delay-back .my-mfp-zoom-in .zoom-anim-dialog,
+.my-mfp-zoom-in .zoom-anim-dialog.delay-back {
+  animation-delay: 0s !important;
+  transition: all .4s 0s;
+}
+/* animate in */
+.my-mfp-zoom-in.mfp-ready .zoom-anim-dialog {
+  opacity: 1;
+  transform: scale(1);
+}
+/* animate out */
+.my-mfp-zoom-in.mfp-removing .zoom-anim-dialog {
+  transform: scale(0.75);
+  opacity: 0;
+}
+/* Dark overlay, start state */
+.mfp-bg {
+  opacity: 0;
+  transform: scale(0.75);
+  transition: opacity .3s, transform .3s;
+}
+.mfp-bg.delay-back {
+  // transition-delay: .2s;
+}
+/* animate in */
+.mfp-bg.mfp-ready {
+  opacity: 0.7;
+  transform: scale(1);
+}
+/* animate out */
+.mfp-removing.mfp-bg {
+  opacity: 0;
+  transform: scale(1);
+}
+.mfp-preloader {
+  color: $font;
+
+  a {
+    color: $primary;
+  }
+}
+
+
+
+.popup-miracle-toggler {
+  margin-bottom: 50px;
+}
+.popup-miracle-toggler a {
+  color: #FFF;
+  border-bottom: 1px dashed rgba(255,255,255,0.5);
+  text-decoration: none !important;
+}
+.popup-miracle-toggler a:hover {
+  border-bottom: 1px solid #FFF;
+}
+.popup-miracle-gift {
+  margin-bottom: 40px;
+}
+.popup-miracle-gift-label {
+  margin-bottom: 5px;
+  font-weight: 700;
+}
+.popup-miracle-gift-gift {
+  background: #67ace5;
+  padding: 15px 20px;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 20px;
+}
+.popup-conditions {
+  background: #0F3A9B;
+  padding: 50px;
+
+  &-scrolled {
+    max-height: calc(100vh - 206px);
+    min-height: 180px;
+  }
+}
+
+.mfp-game.mfp-bg.mfp-ready {
+  opacity: 1;
+}
+html.game-open {
+  #wrapper {
+    position: absolute;
+    z-index: -999;
+    opacity: 0;
+  }
+}
+.popup-santa {
+  button.mfp-close {
+    right: 10px;
+    top: auto !important;
+    bottom: 10px;
+    background: #e8373a;
+    border-radius: 50%;
+    box-shadow: 1px 1px 0px 2px #1b5b99;
+
+    &:before, &:after {
+      height: 6px;
+      margin-top: -3px;
+    }
+  }
+}
+.card-confirm-field {
+  padding: 15px 0 30px;
+}

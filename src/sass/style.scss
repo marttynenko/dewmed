@@ -1,0 +1,107 @@
+@import "vars";
+
+
+
+html {
+	font-family: $basefont, sans-serif;
+	line-height: 1.42;
+  font-size: 16px;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  height: 100%;
+}
+body {
+	height: 100%;
+	color: $font;
+	font-family: $basefont, sans-serif;
+	font-weight: $weight;
+	@include fz($fontsize);
+	line-height: $lh;
+	background: $bgc;
+}
+#wrapper {
+	@extend %flex;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-webkit-flex-direction: column;
+	-ms-flex-direction: column;
+	flex-direction: column;
+	margin-left: auto;
+	margin-right: auto;
+	position: relative;
+	overflow: hidden;
+	min-height: 100%;
+	//min-width: 100%;
+	max-width: 1920px;
+}
+#middle {
+	-webkit-flex: 1 0 auto;
+	-moz-flex: 1 0 auto;
+	-o-flex: 1 0 auto;
+	-ms-flex: 1 0 auto;
+	flex: 1 0 auto;
+}
+#footer {
+	-webkit-flex: 0 0 auto;
+	-moz-flex: 0 0 auto;
+	-o-flex: 0 0 auto;
+	-ms-flex: 0 0 auto;
+	flex: 0 0 auto;
+	width: 100%;
+}
+.inner,
+.container {
+	// max-width: $inner;
+	padding-left: $gutter;
+	padding-right: $gutter;
+	margin-left: auto;
+	margin-right: auto;
+
+	&-fluid {
+		max-width: 100%;
+		padding-left: $gutter;
+		padding-right: $gutter;
+	}
+}
+
+
+.inner:before,
+.inner:after,
+.clearfix:before,
+.clearfix:after {
+	content: "";
+	display: table;
+}
+.inner:after,
+.clearfix:after {
+	clear: both;
+}
+* {
+	margin: 0;
+	padding: 0;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+
+
+
+
+@import "../images/sprite/sprite";
+
+@import "ui";
+
+@import "header";
+
+@import "footer";
+
+@import "pages";
+
+@import "popups";
+
+@import "grid";
+
+// @import "demo";
+
+@import "responsive";
