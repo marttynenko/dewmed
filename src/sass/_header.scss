@@ -14,7 +14,11 @@
 }
 .header-mid {
 	background: #EEE;
-	padding: 25px 0px;
+	
+	.header-inner {
+		padding-top: 25px;
+		padding-bottom: 25px;
+	}
 }
 .header-inner {
 	max-width: 1550px;
@@ -89,6 +93,10 @@
 	flex: 0 0 18%;
 	max-width: 18%;
 	text-align: center;
+
+	img {
+		display: inline-block !important;
+	}
 }
 .logo-link {
 	img {
@@ -152,6 +160,10 @@ svg.svg-btn-icon {
 		}
 	}
 }
+.mm-toggler {
+	display: none;
+	visibility: hidden;
+}
 
 @media (max-width: 1240px) {
 	.main-menu li {
@@ -205,7 +217,11 @@ svg.svg-btn-icon {
 
 @media (max-width: 992px) {
 	.header-mid {
-		padding: 20px 0px;
+
+		.header-inner {
+			padding-top: 20px;
+			padding-bottom: 20px;
+		}
 	}
 	.header-links {
 		max-width: none;
@@ -234,14 +250,12 @@ svg.svg-btn-icon {
 	.header-logo {
 		flex: 1 0 auto;
 		max-width: none;
+		top: 0;
 
 		img {
 			width: 140px;
 			max-width: 100%;
 		}
-	}
-	.main-menu {
-		display: none;
 	}
 	.header-links {
 		.btn {
@@ -250,7 +264,70 @@ svg.svg-btn-icon {
 			line-height: 30px;
 		}
 	}
-}
+	.header-mid .header-inner {
+		position: relative;
+		padding-left: 58px;
+	}
+	.mm-toggler {
+		display: block;
+		visibility: visible;
+		position: absolute;
+		left: 10px;
+		top: 50%;
+		margin-top: -20px;
+		width: 40px;
+		height: 40px;
+		cursor: pointer;
+
+		& > div {
+			position: absolute;	
+			left: 7px;
+			top: 50%;
+			margin-top: -2px;
+			height: 2px;
+			width: 26px;
+			background: $primary;
+			transition: transform .2s;
+		}
+		.mm-1 {
+			transform: translate3d(0,-7px,0);
+		}
+		.mm-3 {
+			transform: translate3d(0,7px,0);
+		}
+		&.opened {
+			.mm-1, .mm-3 {
+				transform: translate3d(0,0,0);
+			}
+		}
+	}
+	.main-menu {
+		position: absolute;
+		left: 0px;
+		right: 0px;
+		padding: 20px 15px;
+		text-align: left;
+		top: 100%;
+		background: #EEE;
+		box-shadow: 0px 3px 15px -1px rgba(#000,.15);
+		opacity: 0;
+		visibility: hidden;
+
+		li {
+			display: block;
+			margin: 0;
+		}
+		a {
+			@include fz(15);
+		}
+
+		&.opened {
+			z-index: 99;
+			opacity: 1;
+			visibility: visible;
+		}
+	} 
+}//768
 
 @media (max-width: 480px) {
 

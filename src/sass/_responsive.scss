@@ -1,13 +1,8 @@
 /* --
 RESPONSIVE STYLES ----------------------- */
-.mm-toggler {
-	display: none;
-	visibility: hidden;
-}
+
 
 @media (max-width: 1200px) {
-
-
 
 }//1200
 
@@ -96,8 +91,29 @@ RESPONSIVE STYLES ----------------------- */
 			display: none;
 		}
 	}
+	.ui-share {
+		.ya-share2__container_size_m .ya-share2__badge .ya-share2__icon {
+			width: 58px;
+			height: 58px;
+			background-size: 38px !important;
+		}
+	}
 
 }//992
+
+
+@media (max-width: 992px) and (min-width: 576px) {
+	.article {
+		&-container {
+			max-width: 700px;
+			padding-left: 100px;
+		}
+		&-floatspace {
+			left: -100px;
+			width: 58px;
+		}
+	}
+}
 
 
 
@@ -240,7 +256,13 @@ RESPONSIVE STYLES ----------------------- */
 			margin-top: 0;
 		}
 	}
-	
+	.ui-share {
+		text-align: center;
+		
+		.ya-share2__list.ya-share2__list_direction_horizontal > .ya-share2__item {
+			margin: 0px 5px 5px;
+		}
+	}
 }//576
 
 
