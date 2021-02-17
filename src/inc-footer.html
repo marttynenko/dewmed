@@ -85,9 +85,25 @@
   </div><!--.inner-->
 </footer><!-- #footer -->
 
-
-
 </div><!-- #wrapper -->
+
+
+<div class="cookies-alert">
+  <div class="inner">
+    <div class="cookies-alert-txt">This website uses Strictly necessary (Type A) cookies which guarantee functions without which you cannot use our web pages as intended. These cookies are used exclusively by us and are therefore first party cookies. You can read more about it in the <a href="//dewmed.group/privacy-policy-en">Privacy Policy</a>.</div>
+    <a href="javascript:void(0)" class="btn btn-bordered cookies-alert-accept">ACCEPT</a>
+  </div>
+</div>
+<script>
+  document.querySelector('.cookies-alert-accept').addEventListener('click',() => {
+    localStorage.setItem('acceptCookies',true);
+    document.querySelector('.cookies-alert').remove();
+  });
+
+  if (localStorage.getItem('acceptCookies') && JSON.parse(localStorage.getItem('acceptCookies')) === true) {
+    document.querySelector('.cookies-alert').remove();
+  }
+</script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js" integrity="sha512-IsNh5E3eYy3tr/JiX2Yx4vsCujtkhwl7SLqgnwLNgf04Hrt9BT9SXlLlZlWx+OK4ndzAoALhsMNcCmkggjZB1w==" crossorigin="anonymous"></script>

@@ -344,5 +344,74 @@ jQuery(document).ready(function($){
 		$('.main-menu').toggleClass('opened');
 	})
 
+	function cardFotoramaInit(){
+		$('.card-imgs').fotorama({
+			width: '100%',
+			height: cardImgs.height,
+			nav: 'thumbs',
+			thumbmargin: 10,
+			thumbwidth: cardImgs.thumbwidth,
+			thumbheight: cardImgs.thumbheight,
+			thumbborderwidth:3,
+			allowfullscreen: true
+		});
+	}
+	const cardImgs = {
+		height: (document.documentElement.clientWidth > 768) ? 406 : 320,
+		thumbwidth: (document.documentElement.clientWidth > 768) ? 85 : 60,
+		thumbheight: (document.documentElement.clientWidth > 768) ? 93 : 70,
+	}
+	
+
+	lazyLibraryLoad(
+		'https://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.min.js',
+		'https://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.min.css',
+		cardFotoramaInit
+	)
+	// $('.slick-card').slick({})
+
+	//увеличиваем значение
+	$(document).on('click', '.ui-amount-plus', function(){
+		var thisInput = $(this).prev('input'),
+				thisInputVal = parseInt(thisInput.val(), 10);
+
+		if (isNaN(thisInputVal)) {
+			thisInput.val(1);
+		} else {
+			thisInput.val(parseInt(thisInput.val(), 10) + 1);
+		}
+	});
+	//уменьшаем значение
+	$(document).on('click', '.ui-amount-minus', function(){
+		var thisInput = $(this).next('input'),
+				thisInputVal = parseInt(thisInput.val(), 10);
+
+		if (isNaN(thisInputVal)) {
+			thisInput.val(1);
+		} else {
+		 if (thisInputVal <= 1) {
+			 thisInput.val(1);
+		 } else {
+			 thisInput.val(parseInt(thisInput.val(), 10) - 1);
+		 }
+		}
+	});
+	$(document).on('change','.ui-amount-input',function(e){
+		let val = parseInt($(this).val(),10);
+		if (val < 1) {
+			$(this).val(1);
+		}
+	});
+
+
+	$(document).on('change','input[name="variants"]',function(){
+		const name = $(this).attr('data-name') || '';
+		const price = $(this).attr('data-price') || '';
+
+		$('.card-price').text(price);
+		$('.card-price-variant').text(name);
+	});
+
+	$('.card-tabs-menu a').Tabs()
 
 });//ready close
