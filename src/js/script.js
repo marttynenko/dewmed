@@ -368,7 +368,6 @@ jQuery(document).ready(function($){
 		'https://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.min.css',
 		cardFotoramaInit
 	)
-	// $('.slick-card').slick({})
 
 	//увеличиваем значение
 	$(document).on('click', '.ui-amount-plus', function(){
