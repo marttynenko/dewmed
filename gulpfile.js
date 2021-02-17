@@ -1,5 +1,6 @@
 const { src,dest,watch,series } = require('gulp');
-const sass = require('gulp-sass')
+//const sass = require('gulp-sass')
+const sass = require('gulp-dart-sass')
 const imagemin = require('gulp-imagemin')
 const pngquant = require('imagemin-pngquant')
 const del = require('del')
@@ -8,15 +9,23 @@ const svgSprite = require('gulp-svg-sprites')
 const concat = require('gulp-concat')
 const minify = require('gulp-minify')
 const cssmin = require('gulp-cssmin')
+// const connect = require('gulp-connect')
     
 
 function styles(cb) {
     return src('src/sass/style.scss')
-    	.pipe(sass({outputStyle: 'compact'}).on('error',sass.logError))
+    	.pipe(sass({outputStyle: 'compressed'}).on('error',sass.logError))
         .pipe(dest('src/css'))
         
     cb();
 }
+
+// function server() {
+//     return connect.server({
+//         root: 'src',
+//         port: 3100
+//     });
+// }
 
 /* gulp.task('sass', function(){
     return gulp.src('src/sass/style.scss')
@@ -90,7 +99,9 @@ function sprite(cb) {
 exports.svg = svg;
 exports.styles = styles;
 exports.sprite = sprite;
+// exports.server = server;
 exports.default = function() {
+    // server();
     watch('src/sass/**/*.scss', series(sprite, styles));
     watch('src/images/icons/*.png', sprite);
     watch('src/images/svg/*.svg', svg);
