@@ -221,6 +221,21 @@ const Preloader = {
 jQuery(document).ready(function($){
 	
 	backgrounded('.ui-backgrounded');
+
+	if ($('.slick-main > div').length > 1) {
+		function initMainSlick() {
+			$('.slick-main').slick({
+				arrows: false,
+				dots: true,
+				infinite: false
+			})
+		}
+		lazyLibraryLoad(
+			'https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js',
+			'https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css',
+			initMainSlick
+		)
+	}
 	
 	//инициализация MFP popup для форм
 	$(document).on('click','.ajax-mfp',function(e){
