@@ -1164,10 +1164,26 @@ svg.svg-card-cart {
 
 
 
+.slick-initialized .slick-slide.main-banner {
+	-ms-display: flex;
+	display: flex;
+}
 .slick-main {
 	&-img {
 		display: block;
 		height: 587px;
+	}
+}
+.main-banner {
+	.slick-main-img {
+		position: absolute;
+		left: 0;
+		top: 0;
+		width: 100%;
+	}
+	&-content {
+		position: relative;
+		z-index: 1;
 	}
 }
 @media (max-width: 992px) {
