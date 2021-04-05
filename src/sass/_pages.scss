@@ -55,7 +55,7 @@
 		margin-bottom: 8px;
 	}
 	&-txt {
-		@include fz(14);
+		@include fz(17);
 		opacity: 0.75;
 	}
 }
@@ -132,7 +132,7 @@
 	&-img {
 		height: 300px;
 		text-align: center;
-		background: #EEE;
+		// background: #EEE;
 		border-radius: 4px 4px 0px 0px;
 
 		img {
@@ -1214,3 +1214,4 @@ svg.svg-card-cart {
 		margin: 0px 4px 8px;
 	}
 }
+
